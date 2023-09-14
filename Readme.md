@@ -1,0 +1,2 @@
+se registraran jugadores y entrenadores a los equipos, existen herencias para los jugadores y entrenadores desde los deportistas
+se autentifica que las personas no esten inscritas y se agregan a los equi´ps
