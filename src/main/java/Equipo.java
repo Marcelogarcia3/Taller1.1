@@ -1,17 +1,23 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Equipo {
-	private ArrayList<String> jugadores;
+	private List<Deportista> deportistas;
 	private String entrenador;
 	private ArrayList<String> historialPartidos;
-	public Deporte deporte;
 
-	public ArrayList<String> getJugadores() {
-		return jugadores;
+	public Equipo() {
+		deportistas = new ArrayList<>();
+		entrenador = "";
+		historialPartidos = new ArrayList<>();
 	}
 
-	public void setJugadores(ArrayList<String> jugadores) {
-		this.jugadores = jugadores;
+	public List<Deportista> getDeportistas() {
+		return deportistas;
+	}
+
+	public void setDeportistas(List<Deportista> deportistas) {
+		this.deportistas = deportistas;
 	}
 
 	public String getEntrenador() {
@@ -30,16 +36,34 @@ public class Equipo {
 		this.historialPartidos = historialPartidos;
 	}
 
-	public Equipo(ArrayList<String> jugadores, String entrenador, ArrayList<String> historialPartidos) {
-		this.jugadores = jugadores;
-		this.entrenador = entrenador;
-		this.historialPartidos = historialPartidos;
+	public boolean agregarDeportista(Deportista deportista) {
+		if (buscarDeportista(deportista.getNombre(), deportista.getPosicion()) == null) {
+			deportistas.add(deportista);
+			return true;
+		} else {
+			return false;
+		}
 	}
+
+	public List<Deportista> buscarDeportista(String nombre, String posicion) {
+		List<Deportista> deportistasEncontrados = new ArrayList<>();
+		for (Deportista deportista : deportistas) {
+			if (deportista.getNombre().equals(nombre) && deportista.getPosicion().equals(posicion)) {
+				deportistasEncontrados.add(deportista);
+			}
+		}
+		return deportistasEncontrados;
+	}
+
+	public void agregarPartido(String resultado) {
+		historialPartidos.add(resultado);
+	}
+
 
 	@Override
 	public String toString() {
 		return "Equipo{" +
-				"jugadores=" + jugadores +
+				"deportistas=" + deportistas +
 				", entrenador='" + entrenador + '\'' +
 				", historialPartidos=" + historialPartidos +
 				'}';

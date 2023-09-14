@@ -18,4 +18,6 @@ public abstract class Deporte {
 	public void setTipoDeporte(String tipoDeporte) {
 		this.tipoDeporte = tipoDeporte;
 	}
+
+	public abstract String getTipo();
 }
