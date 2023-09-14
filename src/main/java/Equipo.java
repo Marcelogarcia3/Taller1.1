@@ -68,4 +68,7 @@ public class Equipo {
 				", historialPartidos=" + historialPartidos +
 				'}';
 	}
+
+	public void registrarPartido(PartidosJugados partido1) {
+	}
 }
